@@ -1,7 +1,7 @@
 extends KinematicBody
 
 export var speed = 10
-export var g = 30
+export var g = 10
 export var look_speed = 0.005
 
 func _ready():
@@ -20,4 +20,7 @@ func _input(event):
 		$Camera.rotate_x(-event.relative.y * look_speed)
 
 	if event.is_action_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
