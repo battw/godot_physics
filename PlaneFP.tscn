@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Player.gd" type="Script" id=1]
+
+[sub_resource type="PlaneMesh" id=1]
+size = Vector2( 100, 100 )
+
+[sub_resource type="PhysicsMaterial" id=7]
+
+[sub_resource type="BoxShape" id=8]
+
+[sub_resource type="CubeMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 0.0705882, 0.384314, 0.0156863, 1 )
+
+[sub_resource type="BoxShape" id=5]
+
+[sub_resource type="CapsuleShape" id=6]
+
+[node name="PlaneFP" type="Spatial"]
+
+[node name="Floor" type="Spatial" parent="."]
+
+[node name="MeshInstance" type="MeshInstance" parent="Floor"]
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Floor"]
+physics_material_override = SubResource( 7 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Floor/StaticBody"]
+transform = Transform( 50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1, 0 )
+shape = SubResource( 8 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.954726, 0.297485, 0, -0.297485, 0.954726, 0, 9.09455, 19.1899 )
+
+[node name="Cube" type="RigidBody" parent="."]
+editor/display_folded = true
+transform = Transform( 0.784009, 0.388174, 0.484408, -0.526266, 0.00179261, 0.850318, 0.329203, -0.921584, 0.205688, 0, 12.1805, 0 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cube"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Cube"]
+shape = SubResource( 5 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.62845, 16.4842, 9.47946 )
+light_energy = 0.6
+omni_range = 4096.0
+
+[node name="Player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.81233, 11.9998 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Player"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 6 )
+
+[node name="Camera" type="Camera" parent="Player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0 )
+current = true
