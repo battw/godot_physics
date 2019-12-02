@@ -16,6 +16,11 @@ func _ready():
 func _physics_process(delta):
 	var local_heading = (Vector3.FORWARD * (Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 				 + Vector3.LEFT * (Input.get_action_strength("left") - Input.get_action_strength("right")))
+
+	# if digital input then normalise
+	if local_heading.length() > 1:
+		local_heading = local_heading.normalized()
+
 	var global_heading = local_heading.rotated(Vector3.UP, rotation.y)
 	if is_on_floor():
 		vert_speed = 0.0
