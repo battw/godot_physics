@@ -34,7 +34,7 @@ func _physics_process(delta):
 	$Camera.rotate_x(x_rot * delta)
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * mouse_look_speed)
 		$Camera.rotate_x(-event.relative.y * mouse_look_speed)
 

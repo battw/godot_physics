@@ -1,0 +1,18 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/deformed_sphere.obj-ffb5bf259404a51c2098f156a8fc890a.mesh"
+
+[deps]
+
+files=[ "res://.import/deformed_sphere.obj-ffb5bf259404a51c2098f156a8fc890a.mesh" ]
+
+source_file="res://models/deformed_sphere.obj"
+dest_files=[ "res://.import/deformed_sphere.obj-ffb5bf259404a51c2098f156a8fc890a.mesh", "res://.import/deformed_sphere.obj-ffb5bf259404a51c2098f156a8fc890a.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+optimize_mesh=true
