@@ -13,6 +13,7 @@ func _ready():
 	assert($CollisionShape != null)
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
 func _physics_process(delta):
 	var local_heading = (Vector3.FORWARD * (Input.get_action_strength("forward") - Input.get_action_strength("backward"))
 				 + Vector3.LEFT * (Input.get_action_strength("left") - Input.get_action_strength("right")))
